@@ -1,3 +1,6 @@
+//random layout definition
+
+var cy;
 //gets executed if the user selects a file with the file input
 var openFile = function (event) {
     var input = event.target;
@@ -5,7 +8,7 @@ var openFile = function (event) {
     reader.onload = function () {
         var text = reader.result;
         var lines = text.split("\n");
-         // get every single line in an array
+        // get every single line in an array
         console.log(lines); //log every line
         createGraph(lines)
     };
@@ -16,7 +19,7 @@ var openFile = function (event) {
 function createGraph(lines) {
     var data = [];
     lines.forEach(function (line) {
-        line =  line.replace(/(\r\n|\n|\r)/gm,""); // remove all  \r \n 
+        line = line.replace(/(\r\n|\n|\r)/gm, ""); // remove all  \r \n 
         var parts = line.split(" ");
         if (parts[0] == "knoten") {
             data.push(createNode(parts));
@@ -27,20 +30,19 @@ function createGraph(lines) {
     });
 
     //Create cytoscape object with our nodes and edges
-    var cy = cytoscape({
+    cy = cytoscape({
         container: document.getElementById('cy'),
         elements: data,
-          style: [
-            {
-              selector: 'node',
-              style: {
-                shape: 'hexagon',
-                'background-color': 'red',
+        style: [{
+            selector: 'node',
+            style: {
+                shape: 'circle',
+                'background-color': "#3399ff",
                 label: 'data(id)'
-              }
-            }]
+            }
+        }]
     });
-    console.log("Graph",data);
+    console.log("Graph", data);
 }
 
 //creates a node object 
@@ -65,4 +67,20 @@ function createEdge(edgedata) {
         }
     }
     return edge;
+}
+
+
+
+function runRandomLayout() {
+    var layout = cy.makeLayout({
+        name: 'random'
+    });
+    layout.run();
+}
+
+function runGridLayout() {
+    var layout = cy.makeLayout({
+        name: 'grid'
+    });
+    layout.run();
 }

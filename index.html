@@ -12,12 +12,17 @@
 <body>
     <div id="cy"></div>
     <div id="config" class="config">
-
         <label>Load Graph</label>
         <input type="file" id="graphloader" accept=".txt" name="file" onchange="openFile(event)"></input>
-
+        <br>
+        <button class="btn btn-default btn-block" onclick="runRandomLayout()">Relayout randomly</button>
+        <br>
+        <button class="btn btn-default btn-block" onclick="runGridLayout()">Relayout Grid</button>
+        <br>
+        <button class="btn btn-default btn-block" onclick="checkEulerCircle(cy)">Check Euler</button>
     </div>
 </body>
 <script src="js/core.js"></script>
+<script src="js/algorithms.js"></script>
 
 </html>
