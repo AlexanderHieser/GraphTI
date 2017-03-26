@@ -12,11 +12,21 @@ function checkEulerCircle(cy) {
     console.log("Edges complete: " + complete_count)
     console.log("Graph is complete: " + complete_graph)
 
+    var odd_count = 0;
+    var event_count = 0;
     var anim_time = 100;
+
     var dfs = cy.elements().dfs({
         roots: cy.nodes(),
+
         visit: function (i, depth, v, e) {
-            console.log(v.connectedEdges().length);
+            var connected_count = v.connectedEdges().length;
+            console.log("Node "+ this.id() + " has  a grade of "+ connected_count );
+            if(connected_count % 2 == 0){
+                event_count++;
+            }else {
+                odd_count++;
+            }
             this.animate({
                 style: {
                     backgroundColor: 'red',
@@ -38,12 +48,20 @@ function checkEulerCircle(cy) {
                 }).delay(anim_time)
             }
             anim_time += 1000;
-
-        }
+            }
 
     });
 
+    if(odd_count == 2) {
+        console.log("Eulerpath found");
+    }
+    if(event_count == cy.nodes().length && complete_graph == true) {
+        console.log("Euler circle");
+    }
+    console.log(odd_count);
+    console.log(event_count);
     var path = dfs.path;
+    var euler = dfs.found;
 
     path.select();
 

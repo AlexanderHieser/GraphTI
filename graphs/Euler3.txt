@@ -5,7 +5,6 @@ knoten C
 
 # Kantendefinitionen 
 kante A B 
-kante A D
-kante A E
 kante B C
+kante C A
 
