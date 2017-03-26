@@ -67,3 +67,51 @@ function checkEulerCircle(cy) {
     path.select();
 
 }
+
+function deepFirstSearch(cy) {
+    var anim_time = 100;
+    var dfs = cy.elements().dfs({ //tiefensuche
+        roots: cy.nodes(),
+        visit: function (i, depth, v, e) {
+            this.animate({
+                style: {
+                    backgroundColor: 'red',
+                    shape: 'square'
+                }
+            }, {
+                duration: 10,
+                queue: true
+            }).delay(anim_time)
+
+            if (e) {
+                e.animate({
+                    style: {
+                        "line-color": 'red'
+                    }
+                }, {
+                    duration: 100,
+                    queue: true
+                }).delay(anim_time)
+            }
+            anim_time += 1000;
+        }
+    });
+
+    var path = dfs.path;
+    path.select();
+
+}
+
+function findCircle(node,cy) {
+    if(node.connectedNodes().length == 0){
+        return;
+    }
+    if(node.visited == true) {
+        return;
+    }else {
+        node.visited = true;
+        node.connectedNodes().forEach(function(node) {
+        findCircle(node,cy);
+    })
+    }
+}
