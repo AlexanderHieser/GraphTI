@@ -29,27 +29,6 @@ function checkEulerCircle(cy) {
                 odd_count++;
             }
 
-            this.animate({
-                style: {
-                    backgroundColor: 'red',
-                    shape: 'square'
-                }
-            }, {
-                duration: 10,
-                queue: true
-            }).delay(anim_time)
-
-            if (e) {
-                e.animate({
-                    style: {
-                        "line-color": 'red'
-                    }
-                }, {
-                    duration: 100,
-                    queue: true
-                }).delay(anim_time)
-            }
-            anim_time += 1000;
         }
     });
 
@@ -68,6 +47,7 @@ function checkEulerCircle(cy) {
 
 }
 
+//performs a dfs and animates the nodes
 function deepFirstSearch(cy) {
     var anim_time = 100;
     var dfs = cy.elements().dfs({ //tiefensuche
@@ -101,17 +81,34 @@ function deepFirstSearch(cy) {
     path.select();
 
 }
+var visited = [];
 
-function findCircle(node,cy) {
-    if(node.connectedNodes().length == 0){
-        return;
-    }
-    if(node.visited == true) {
+function checkCircle(cy) {
+    visited = [];
+    findCircle(cy, cy.elements()[0]);
+}
+
+var finished = []
+
+
+var visited = [];
+var found = false;
+function findCircle(v) {
+    var vis = visited.indexOf(v);
+    if (vis != -1) {
+        found = true;
+        console.log("zyklus gefunden");
+        console.log(visited)
+           visited.forEach(function(a) {
+            console.log(a.id())
+        })
+        visited = [];
         return;
     }else {
-        node.visited = true;
-        node.connectedNodes().forEach(function(node) {
-        findCircle(node,cy);
-    })
+        visited.push(v);
+        var neigh = v.outgoers().nodes();
+        neigh.forEach(function(v) {
+            return findCircle(v);
+        });
     }
 }
