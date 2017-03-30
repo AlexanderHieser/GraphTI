@@ -31,24 +31,23 @@ function checkEulerCircle(cy) {
 
         }
     });
-
-    if (odd_count == 2) {
-        console.log("Eulerpath found");
-    }
-    if (event_count == cy.nodes().length && complete_graph == true) {
-        console.log("Euler circle");
-    }
-
-    console.log(odd_count);
-    console.log(event_count);
     var path = dfs.path;
     var euler = dfs.found;
     path.select();
 
+    if(odd_count == 0 && complete_graph == true) {
+      console.log("Found Euler circle");
+      return;
+    }
+    if (odd_count == 2) {
+        console.log("Found Eulerpath found");
+        return;
+    }
+    console.log("No Circuit or Path found");
 }
 
 //performs a dfs and animates the nodes
-function deepFirstSearch(cy) {
+function depthFirstSearch(cy) {
     var anim_time = 100;
     var dfs = cy.elements().dfs({ //tiefensuche
         roots: cy.nodes(),
