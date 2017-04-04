@@ -5,6 +5,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/cytoscape.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="css/index.css"></link>
 </head>
@@ -23,11 +24,15 @@
          <br>
         <button class="btn btn-default btn-block" onclick="deepFirstSearch(cy)">Deep First Search</button>
          <br>
-        <button class="btn btn-default btn-block" onclick="findCircle(cy.elements().nodes()[0])">Circle</button>
+        <button class="btn btn-default btn-block" onclick="checkCircle(cy)">Circle</button>
         </button>
     </div>
 </body>
 <script src="js/core.js"></script>
 <script src="js/algorithms.js"></script>
+
+<script src="js/vis/Node.js"></script>
+<script src="js/vis/Edge.js"></script>
+<script src="js/vis/Graph.js"></script>
 
 </html>

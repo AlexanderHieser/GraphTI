@@ -2,8 +2,11 @@
 knoten A
 knoten B
 knoten C
-
+knoten D
+knoten E
 # Kantendefinitionen 
 kante A B 
 kante A C
+kante E D
+kante C D
 

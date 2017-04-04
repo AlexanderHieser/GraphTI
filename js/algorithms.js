@@ -28,19 +28,19 @@ function checkEulerCircle(cy) {
             } else {
                 odd_count++;
             }
-
         }
     });
 
-    if (odd_count == 2) {
-        console.log("Eulerpath found");
-    }
+  
     if (event_count == cy.nodes().length && complete_graph == true) {
         console.log("Euler circle");
+    }else  if (odd_count == 2) {
+        console.log("Eulerpath found");
+    }else{
+        console.log("No euler path or circle")
     }
 
-    console.log(odd_count);
-    console.log(event_count);
+
     var path = dfs.path;
     var euler = dfs.found;
     path.select();
@@ -85,30 +85,27 @@ var visited = [];
 
 function checkCircle(cy) {
     visited = [];
-    findCircle(cy, cy.elements()[0]);
+    var found = findCircle(cy.elements()[0]);
+    if(!found) {
+        console.log("kein zyklus")
+    }
 }
-
-var finished = []
 
 
 var visited = [];
-var found = false;
+var finished = false;
 function findCircle(v) {
     var vis = visited.indexOf(v);
     if (vis != -1) {
-        found = true;
         console.log("zyklus gefunden");
-        console.log(visited)
-           visited.forEach(function(a) {
-            console.log(a.id())
-        })
         visited = [];
-        return;
+        finished = true;
+        return true;
     }else {
         visited.push(v);
         var neigh = v.outgoers().nodes();
-        neigh.forEach(function(v) {
-            return findCircle(v);
+        neigh.forEach(function(u) {
+            return findCircle(u);
         });
     }
 }
