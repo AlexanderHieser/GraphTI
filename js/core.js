@@ -21,6 +21,11 @@ function resetGraphColors(cyto) {
             'background-color' : '#3399ff'
         })
     });
+    cyto.edges().forEach(function(edge) {
+        edge.style({
+            'line-color':'gray'
+        });
+    })
 }
 
 //Generates cy graph from the passed text 

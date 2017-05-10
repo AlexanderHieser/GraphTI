@@ -18,7 +18,7 @@ function GreedyIS(cyto) {
     U.forEach(function (n) { // set color of all nodes from IS
         console.log(n.id())
         n.style({
-            'background-color':'yellow'
+            'background-color':'red'
         })
     })
 
