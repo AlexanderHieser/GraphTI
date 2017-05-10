@@ -5,6 +5,8 @@ var colors = [
 ]
 
 function GreedyCol2(cyto) {
+        resetGraphColors(cyto);
+
     //setup init values
     var t = 0;
     var V = cyto.nodes();

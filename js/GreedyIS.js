@@ -1,4 +1,5 @@
 function GreedyIS(cyto) {
+    resetGraphColors(cyto);
     var t = 1; // init t
     var U = []; // init U
     var V = cyto.nodes(); // Get Vertices

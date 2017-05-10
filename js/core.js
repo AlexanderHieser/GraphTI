@@ -15,6 +15,14 @@ var openFile = function (event) {
     reader.readAsText(input.files[0]);
 };
 
+function resetGraphColors(cyto) {
+    cyto.nodes().forEach(function(node) {
+        node.style({
+            'background-color' : '#3399ff'
+        })
+    });
+}
+
 //Generates cy graph from the passed text 
 function createGraph(lines) {
     var data = [];
