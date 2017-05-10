@@ -8,7 +8,10 @@ knoten F
 knoten G
 knoten H
 knoten I
-
+knoten J
+knoten K
+knoten L
+knoten M
 
 
 # Kantendefinitionen 
@@ -28,4 +31,5 @@ kante E B
 kante A I
 kante D I
 kante H I
+kante L M
 
