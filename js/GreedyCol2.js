@@ -1,11 +1,10 @@
-
 //just some color definitions
 var colors = [
     "blue", "red", "yellow", "green", "orange"
 ]
 
 function GreedyCol2(cyto) {
-        resetGraphColors(cyto);
+    resetGraphColors(cyto);
 
     //setup init values
     var t = 0;
