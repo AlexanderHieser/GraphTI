@@ -5,24 +5,23 @@ function GreedyIS(cyto) {
     var G = cyto;
     var nodes = cyto.nodes();
     var edges = cyto.edges();
-    console.log(V);
-    console.log(G)
     while (V.length != 0) {
         var u = getVertexWithMiniumGrade(G);
-        console.log("Minium grade" + u.id())
         var neigh = u.neighborhood();
-        G.remove(u);
-        G.remove(neigh);
-        V = G.nodes();
-        U.push(u);
+        G.remove(u); //remove node with minimum grade
+        G.remove(neigh); // remove all neighbours and edges
+        V = G.nodes(); // Set nodes left
+        U.push(u); // save minium grade node
         t = t + 1;
     }
-    U.forEach(function (n) {
+    U.forEach(function (n) { // set color of all nodes from IS
         console.log(n.id())
         n.style({
             'background-color':'yellow'
         })
     })
+
+    // add removed nodes and edges again ( cytoscape... wtf)
     nodes.forEach(function(n) {
         n.restore();
     })
@@ -33,7 +32,7 @@ function GreedyIS(cyto) {
     return U;
 }
 
-function getVertexWithMiniumGrade(cyto) {
+function getVertexWithMiniumGrade(cyto) { // find Node with minim grade in Graph
     var vertex = cyto.nodes()[0];
     cyto.nodes().forEach(function (node) {
         if (node.connectedEdges().length < vertex.connectedEdges().length) {
