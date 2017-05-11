@@ -15,8 +15,10 @@ function GreedyIS(cyto) {
         U.push(u); // save minium grade node
         t = t + 1;
     }
+
+    console.log("===Maximum IS===")
     U.forEach(function (n) { // set color of all nodes from IS
-        console.log(n.id())
+        console.log(n.id());
         n.style({
             'background-color':'red'
         })

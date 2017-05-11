@@ -40,7 +40,7 @@ function checkEulerCircle(cy) {
       return;
     }
     if (odd_count == 2) {
-        console.log("Found Eulerpath found");
+        console.log("Found Eulerpath ");
         return;
     }
     console.log("No Circuit or Path found");

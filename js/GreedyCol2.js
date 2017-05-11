@@ -26,7 +26,7 @@ function GreedyCol2(cyto) {
         Ux.push(U); // save the IS
         t++; // increment color
     }
-
+    console.log("Colors used:",t);
     Ux.forEach(function (U) { // Just printing the sets
         console.log("===SET====")
         U.forEach(function (node) {
