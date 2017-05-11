@@ -16,14 +16,14 @@ var openFile = function (event) {
 };
 
 function resetGraphColors(cyto) {
-    cyto.nodes().forEach(function(node) {
+    cyto.nodes().forEach(function (node) {
         node.style({
-            'background-color' : '#3399ff'
+            'background-color': '#3399ff'
         })
     });
-    cyto.edges().forEach(function(edge) {
+    cyto.edges().forEach(function (edge) {
         edge.style({
-            'line-color':'gray'
+            'line-color': 'gray'
         });
     })
 }
@@ -53,7 +53,13 @@ function createGraph(lines) {
                 'background-color': "#3399ff",
                 label: 'data(id)'
             }
+        }, {
+            selector: 'edge',
+            style: {
+                'label': 'data(data)'
+            }
         }]
+
     });
     console.log("Graph", data);
 }

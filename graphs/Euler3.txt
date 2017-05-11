@@ -2,8 +2,10 @@
 knoten A
 knoten B
 knoten C
+knoten D
 
 # Kantendefinitionen 
-kante A B 
-kante A C
-
+kante A B 10
+kante A C 5 
+kante B C 20
+kante A D 2

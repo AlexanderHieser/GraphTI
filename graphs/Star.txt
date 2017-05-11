@@ -12,7 +12,7 @@ knoten I
 
 
 # Kantendefinitionen 
-kante A B 
+kante A B 10
 kante A C
 kante A D
 kante A E
