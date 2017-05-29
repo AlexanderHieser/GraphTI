@@ -10,5 +10,8 @@ function ISandClique(cy) {
             })
         }
     });
-    console.log("Clique: ", C);
+    console.log("Clique");
+    C.forEach(function(node){
+        console.log(node.id());
+    })
 }
