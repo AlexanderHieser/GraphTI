@@ -3,7 +3,7 @@
       left: 0;
       top: 0;
       bottom: 0;
-      right: 25em;
+      right: 20em;
   }
   
   .config {
@@ -11,7 +11,7 @@
       right: 0;
       top: 0;
       bottom: 0;
-      width: 25em;
+      width: 20em;
       background: rgba(0, 0, 0, 0.75);
       box-sizing: border-box;
       padding: 1em;

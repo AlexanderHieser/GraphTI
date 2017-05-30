@@ -4,14 +4,18 @@ function ISandClique(cy) {
     var C = [];
     cy.nodes().forEach(function (node) {
         if (U.indexOf(node) == -1) {
-            C.push(node);
-            node.style({
-                'background-color': 'green'
-            })
+            console.log(node.connectedEdges().length)
+            if (node.connectedEdges().length > 0) {
+                C.push(node);
+                node.style({
+                    'background-color': 'green'
+                })
+            }
         }
     });
+    
     console.log("Clique");
-    C.forEach(function(node){
+    C.forEach(function (node) {
         console.log(node.id());
     })
 }
