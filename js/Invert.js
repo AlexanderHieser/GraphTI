@@ -1,4 +1,4 @@
-function ISandClique(cy) {
+function Invert(cy) {
     var Nodes = cy.nodes();
     var Edges = cy.edges();
 
@@ -42,21 +42,4 @@ function ISandClique(cy) {
         cy.add(i);
     })
 
-    var U = GreedyIS(cy);
-
-    var nEdges = cy.edges();
-    nEdges.forEach(function(i) {
-        cy.remove(i);
-    })
-    
-    Edges.forEach(function(e) {
-        cy.add(e);
-    })
-
-   U.forEach(function (n) { // set color of all nodes from IS
-        console.log(n.id());
-        n.style({
-            'background-color':'red'
-        })
-    })
 }
